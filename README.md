@@ -6,6 +6,12 @@ PowerTool retrieves class and grade data from PowerSchool. Among other features,
 
 <br />
 
+### Patch Notes for 1.0.1:
+
+- Attempting to delete duplicate branch.
+
+<br />
+
 ### Patch Notes for 1.0.0:
 
 - Main project goal complete!
