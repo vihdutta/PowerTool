@@ -1,3 +1,7 @@
+'''IMPORTANT: TO KEEP CHROMEDRIVER.EXE FROM SHOWING IN TERMINAL WHEN 
+THIS PROGRAM WAS TURNED INTO AN EXE WITH PYINSTALLER, I HAD TO USE '-w' 
+WHEN USING PYINSTALLER AND ADD 'creationflags=134217728' IN THE START FUNCTION 
+IN service.py (a selenium file)'''
 import os
 import time
 import json
@@ -7,12 +11,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-
 runamount = 0
 gradelist1 = []
 gradelist2 = []
 classlist = []
-quarterDict = {'1': 13, '2': 14, '3': 15, '4': 16}
+quarterDict = {'1': 13, '2': 14, 'x1': 15, '3': 16, '4': 17}
 
 def powerScrape(username, password, quarterinput):
     global gradelist1
@@ -22,7 +25,7 @@ def powerScrape(username, password, quarterinput):
 
     #initiates driver/driver preferences
     options = Options()
-    options.add_experimental_option('excludeSwitches', ['enable-logging']) #supresses errors (IMPORTANT)
+    options.add_experimental_option('excludeSwitches', ['enable-logging']) #suppresses errors (IMPORTANT)
     options.headless = True
     PATH = 'chromedriver.exe'
     driver = webdriver.Chrome(executable_path=PATH, options=options)
@@ -67,7 +70,6 @@ def powerScrape(username, password, quarterinput):
     for grade in grades:
         gradeinfo = grade.text.split()[-1] #split removes the letter grade from the string
         gradelist2.append(gradeinfo)
-    #gradelist2.append(runamount)
     
     #iterates through all classname data found
     classlist.clear()
@@ -85,16 +87,14 @@ def statementReturner():
 
 #gets the difference of grades from x-1 and x times running.
 def gradeChangeShow():
-    gradelist1_change = [x for x in gradelist1 if x != '--']
-    gradelist2_change = [x for x in gradelist2 if x != '--']
     difference = []
-    for i in range(len(gradelist1)): #gradelist1 here can be gradelist 2 as well.
-        difference = ["{:.1f}".format(float(a) - float(b)) for a, b in zip(gradelist2_change, gradelist1_change)]
-    difference = [x for x in difference if x != '0']
-    statement = [f'\n{c.rstrip()}: {d}'
-               for c, d in zip(classlist, difference) if float(d) != 0]
+    gradelist1_change = [g.replace('--', '0.0') for g in gradelist1]
+    gradelist2_change = [g.replace('--', '0.0') for g in gradelist2]
+    for i in range(len(gradelist1)):
+        difference = ["{:+.1f}".format(float(a) - float(b)) for a, b in zip(gradelist2_change, gradelist1_change)]
+    statement = [f'\n{c.rstrip()}: {d}' for c, d in zip(classlist, difference) if float(d) != 0.0]
     comma_delete = ','.join(statement)
-    if difference:
+    if comma_delete:
         return comma_delete.replace(',', '')
     else:
         return ('\nNo grade changes.')

@@ -1,3 +1,4 @@
-other/gui.ui
-other/test.py
+other/
+__pycache__/
 gradelist.json
+*.pyc
