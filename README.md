@@ -48,4 +48,6 @@ Firstly, install as you would another program-- but make sure you check "create 
 ![Columns](setup/column.png)
 
  So for me, quarter one has a column number of 13 as shown in the picture. I enter "1" in PowerTool to get the grades from that column. This is similar for other quarters. I enter "3" in PowerTool to get the grades from column number 17.
+
+ I hope you all have a use for my project!
   
