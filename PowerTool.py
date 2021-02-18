@@ -11,11 +11,16 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+
 runamount = 0
+
 gradelist1 = []
 gradelist2 = []
 classlist = []
-quarterDict = {'1': 13, '2': 14, 'x1': 15, '3': 16, '4': 17}
+
+with open('Variables.txt') as f:
+    quarter_dict = eval(f.readlines(1)[0])
+    link = eval(f.readlines(2)[0])
 
 def powerScrape(username, password, quarterinput):
     global gradelist1
@@ -29,7 +34,7 @@ def powerScrape(username, password, quarterinput):
     options.headless = True
     PATH = 'chromedriver.exe'
     driver = webdriver.Chrome(executable_path=PATH, options=options)
-    driver.get('https://sis.henrico.k12.va.us/public/home.html')
+    driver.get(link)
 
     #waits at most 10 seconds to find an element (which indicates the website has loaded)
     try:
@@ -48,7 +53,7 @@ def powerScrape(username, password, quarterinput):
     login_button.click()
 
     #finds grades and classnames by xpath
-    grades = driver.find_elements_by_xpath('//*[starts-with(@id, "ccid")]/td[%s]/a'%quarterDict[quarterinput])
+    grades = driver.find_elements_by_xpath('//*[starts-with(@id, "ccid")]/td[%s]/a'%quarter_dict[quarterinput])
     classnames = driver.find_elements_by_xpath('//*[starts-with(@id, "ccid")]/td[12]')
 
     gradelist1.clear()

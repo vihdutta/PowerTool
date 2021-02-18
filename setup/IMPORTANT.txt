@@ -1,0 +1,4 @@
+IMPORTANT: NOT DOING THE FOLLOWING WILL CAUSE PROGRAM TO FAIL.
+
+After installation, follow the setup instructions on Github
+to insure the program works as intended.
