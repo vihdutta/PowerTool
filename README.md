@@ -1,4 +1,6 @@
-[<div style="text-align:center"><img src="PowerTool.jpg" width="300"/></div>](PowerTool.jpg)
+<p align="center">
+  <img width="300" height="300" src="PowerTool.jpg">
+</p>
 
 <h1 align="center">PowerTool</h1>
 
