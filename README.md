@@ -35,11 +35,11 @@ PowerTool retrieves class and grade data from PowerSchool. Among other features,
 
 Firstly, install as you would another program-- but make sure you check "create desktop shortcut" in setup.
 
-![Desktop shortcut](setup/desktopshortcut.png)
+![Desktop shortcut](setup/shortcut.png)
 
  After you are finished with the setup file, a shortcut for PowerTool will appear on your desktop. Right click it, and press "open file location". Once you have done that, find Variables.txt and open it.
 
-![Variables.txt](setup/variables.png)
+![Variables.txt](setup/vars.png)
 
  Here you should replace the sample link on the second line of the file to your PowerSchool login page link. DO NOT remove the two ' characters at the start and end of the link. Make sure to save the file when finished.
 
