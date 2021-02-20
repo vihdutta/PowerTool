@@ -1,9 +1,8 @@
-'''IMPORTANT: TO KEEP CHROMEDRIVER.EXE FROM SHOWING IN TERMINAL WHEN 
-THIS PROGRAM WAS TURNED INTO AN EXE WITH PYINSTALLER, I HAD TO USE '-w' 
-WHEN USING PYINSTALLER AND ADD 'creationflags=134217728' IN THE START FUNCTION 
-IN service.py (a selenium file)'''
-import os
-import time
+# IMPORTANT: TO KEEP CHROMEDRIVER.EXE FROM SHOWING IN TERMINAL WHEN 
+# THIS PROGRAM WAS TURNED INTO AN EXE WITH PYINSTALLER, I HAD TO USE '-w' 
+# WHEN USING PYINSTALLER AND ADD 'creationflags=134217728' IN THE START FUNCTION 
+# IN service.py (a selenium file)
+
 import json
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options

@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PowerTool import powerScrape, statementReturner, gradeChangeShow, gradelist1, classlist
+from PowerTool import powerScrape, statementReturner, gradeChangeShow
 
 guirunamount = 0
 
